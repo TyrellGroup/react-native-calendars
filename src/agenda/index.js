@@ -95,7 +95,8 @@ export default class AgendaView extends Component {
     /** Called when the momentum scroll starts for the agenda list. **/
     onMomentumScrollBegin: PropTypes.func,
     /** Called when the momentum scroll stops for the agenda list. **/
-    onMomentumScrollEnd: PropTypes.func
+    onMomentumScrollEnd: PropTypes.func,
+    content: PropTypes.func
   };
 
   constructor(props) {
@@ -425,7 +426,7 @@ export default class AgendaView extends Component {
     return (
       <View testID={this.props.testID} onLayout={this.onLayout} style={[this.props.style, {flex: 1, overflow: 'hidden'}]}>
         <View style={this.styles.reservations}>
-          {this.renderReservations()}
+          {this.props.content}
         </View>
         <Animated.View style={headerStyle}>
           <Animated.View style={{flex: 1, transform: [{translateY: contentTranslate}]}}>
