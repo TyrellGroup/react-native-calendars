@@ -96,7 +96,7 @@ export default class AgendaView extends Component {
     onMomentumScrollBegin: PropTypes.func,
     /** Called when the momentum scroll stops for the agenda list. **/
     onMomentumScrollEnd: PropTypes.func,
-    content: PropTypes.func
+    content: PropTypes.object
   };
 
   constructor(props) {
