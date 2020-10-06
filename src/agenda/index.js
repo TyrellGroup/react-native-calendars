@@ -248,15 +248,12 @@ export default class AgendaView extends Component {
   }
 
   dissableCalendarScrolling() {
-    this.setState({
-      calendarScrollable: false,
-    });
+    this.setState({calendarScrollable: false})
 
-    if (this.props.onCalendarToggled) {
-      this.props.onCalendarToggled(false);
-    }
+    this.props.onCalendarToggled && this.props.onCalendarToggled(false)
 
-    this.setScrollPadPosition(this.initialScrollPadPosition(), true);
+    this.setScrollPadPosition(this.initialScrollPadPosition(), true)
+    this.calendar.scrollToDay(this.state.selectedDay, this.calendarOffset(), true)
   }
 
   enableCalendarScrolling() {
@@ -435,12 +432,12 @@ export default class AgendaView extends Component {
       knobHideButton = !this.state.calendarScrollable ? null : (
         <Pressable
           onPress={() => {this.dissableCalendarScrolling()}}
-          hitSlop={{ top: 40, left: 40, bottom: 40, right: 40 }}
+          hitSlop={{ top: 65, left: 65, bottom: 65, right: 65 }}
         >
           <View style={{...this.styles.knobContainer, ...this.styles.knobHideArrow}}>
             <Image source={require("./img/knob-hide-arrow2x.png")}/>
           </View>
-          </Pressable>
+        </Pressable>
       )
       knob = this.state.calendarScrollable ? null : (
         <View style={this.styles.knobContainer}>

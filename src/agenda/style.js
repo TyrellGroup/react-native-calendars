@@ -30,7 +30,8 @@ export default function styleConstructor(theme = {}) {
       backgroundColor: appStyle.calendarBackground
     },
     knobHideArrow: {
-      transform: [{translateY: -5}, {scale: 0.57}]
+      transform: [{translateY: -15}, {scale: 0.57}],
+      backgroundColor: 'transparent'
     },
     weekday: {
       width: 32,
