@@ -29,6 +29,9 @@ export default function styleConstructor(theme = {}) {
       alignItems: 'center',
       backgroundColor: appStyle.calendarBackground
     },
+    knobHideArrow: {
+      transform: [{translateY: -5}, {scale: 0.57}]
+    },
     weekday: {
       width: 32,
       textAlign: 'center',
