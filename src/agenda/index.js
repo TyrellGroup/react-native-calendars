@@ -136,7 +136,9 @@ export default class AgendaView extends Component {
     const chooseSelectedDay = () => {
       if (this.state.selectedDay) {
         this.chooseDay(this.state.selectedDay);
-        setTimeout(chooseSelectedDay, 200);
+        setTimeout(() => this.chooseDay(this.state.selectedDay), 200);
+        setTimeout(() => this.chooseDay(this.state.selectedDay), 450);
+        setTimeout(() => this.chooseDay(this.state.selectedDay), 700);
       } else {
         setTimeout(chooseSelectedDay, 200);
       }
