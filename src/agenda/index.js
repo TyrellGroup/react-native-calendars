@@ -132,19 +132,6 @@ export default class AgendaView extends Component {
   componentDidMount() {
     this._isMounted = true;
     this.loadReservations(this.props);
-
-    const chooseSelectedDay = () => {
-      if (this.state.selectedDay) {
-        this.chooseDay(this.state.selectedDay);
-        setTimeout(() => this.chooseDay(this.state.selectedDay), 200);
-        setTimeout(() => this.chooseDay(this.state.selectedDay), 450);
-        setTimeout(() => this.chooseDay(this.state.selectedDay), 700);
-      } else {
-        setTimeout(chooseSelectedDay, 200);
-      }
-    }
-   
-    chooseSelectedDay();
   }
 
   componentWillUnmount() {
@@ -185,7 +172,10 @@ export default class AgendaView extends Component {
     // scroll position actually changes (it would stay at 0, when scrolled to the top).
     this.setScrollPadPosition(this.initialScrollPadPosition(), false);
     // delay rendering calendar in full height because otherwise it still flickers sometimes
-    setTimeout(() => this.setState({calendarIsReady: true}), 0);
+    setTimeout(() => {
+      this.setState({calendarIsReady: true})
+      this.chooseDay(this.state.selectedDay)
+    }, 0);
   }
 
   onLayout(event) {
