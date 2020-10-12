@@ -7,8 +7,8 @@ export const processingColor = '#ffce5c'; // not in use
 export const failedColor = '#f67e7e'; // not in use
 export const textSecondaryColor = '#7a92a5'; // not in use
 
-export const textDefaultColor = '#2d4150';
-export const textColor = '#43515c';
+export const textDefaultColor = '#FFFFFF';
+export const textColor = '#FFFFFF';
 export const textLinkColor = '#00BBF2';
 
 export const textDayFontFamily = 'System';
