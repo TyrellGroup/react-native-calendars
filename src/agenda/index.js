@@ -133,18 +133,15 @@ export default class AgendaView extends Component {
     this._isMounted = true;
     this.loadReservations(this.props);
 
-    const normalizeScroll = () => {
-      this.setScrollPadPosition(this.initialScrollPadPosition(), true);
-      this.calendar.scrollToDay(
-        this.state.selectedDay ? this.state.selectedDay : new Date (),
-        this.calendarOffset(), true
-      );
+    const chooseSelectedDay = () => {
+      if (this.state.selectedDay) {
+        this.chooseDay(this.state.selectedDay);
+      } else {
+        setTimeout(chooseSelectedDay, 200);
+      }
     }
 
-    this.setScrollPadPosition(this.initialScrollPadPosition(), true);
-    this.calendar.scrollToDay(this.state.selectedDay, this.calendarOffset(), true);
-
-    setTimeout (normalizeScroll, 500);
+    chooseSelectedDay();
   }
 
   componentWillUnmount() {
